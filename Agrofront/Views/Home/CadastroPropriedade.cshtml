@@ -1,0 +1,111 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Formulario Responsivo de registro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="form-title">Cadastro de propriedades</h1>
+        <img src="~/imagens/agroo.png" />
+        <form action="#">
+            <div class="main-user-info">
+                <div class="user-input-box">
+                    <label for="fullName">Nome da localidade</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Entre com o nome completo" />
+                </div>
+                <div class="user-input-box">
+                    <label for="phoneNumber">Localização</label>
+                    <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Insira sua localidade" />
+                </div>
+
+                <div class="user-input-box">
+                    <label for="password">Área cultivada</label>
+                    <input type="password" id="password" name="password" placeholder="Nos informe área cultivada" />
+                </div>
+                <div class="user-input-box">
+                    <label for="confirmPassword">Culturas Plantadas</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="culturas plantadas" />
+                </div>
+            </div>
+            <div>
+                <a class="btn-link" asp-area="" asp-controller="Home" asp-action="Index">Concluir cadastro</a>
+            </div>
+            <!-- Voltar para primeira página -->
+            <div>
+                <a class="btn-link" href="3index.html">Voltar à tela anterior</a>
+            </div>
+        </form>
+    </div>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: content-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-link {
+            text-decoration: none;
+            border: 1px solid #000;
+            width: 1000px;
+            text-align: center;
+            padding: 10px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 16px;
+            background-color: #006400;
+            color: #fff;
+        }
+
+            .btn-link:hover {
+                box-shadow: 2px 2px #000;
+            }
+    </style>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var button = document.querySelector('.btn-link');
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                fetch('http://localhost:5211/api/Propriedade/Cadastrar', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        fullName: document.getElementById('fullName').value,
+                        phoneNumber: document.getElementById('phoneNumber').value,
+                        password: document.getElementById('password').value,
+                        confirmPassword: document.getElementById('confirmPassword').value
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function (response) {
+                    if (response.ok) {
+                        // Sucesso, faça algo com a resposta
+                        console.log('Cadastro concluído com sucesso!');
+                    } else {
+                        // Trate erros de requisição
+                        console.error('Erro ao enviar dados do cadastro.');
+                    }
+                }).catch(function (error) {
+                    // Trate erros de rede
+                    console.error('Erro de rede:', error);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -10,9 +10,10 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
+    background-image: url('../imagens/bela.jpg');
+    background-size = 100%;
     /* background-color:   #8B4513;
     background-size: cover; */
-    background-image: url(~/imagens/fundonovo.png);
 }
 
 .container {

@@ -1,4 +1,3 @@
-
 using AgroSimply.Data;
 using AgroSimply.Repositorios;
 using AgroSimply.Repositorios.Interfaces;
@@ -30,14 +29,8 @@ namespace AgroSimply
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
-                app.UseEndpoints(endpoints =>
-                {
-                    endpoints.MapControllerRoute(
-                        name: "default",
-                        pattern: "{controler=Login}/{action=Index}/{id?}");
-                });
-                // app.UseSwagger();
-                //app.UseSwaggerUI();
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
 
             app.UseHttpsRedirection();

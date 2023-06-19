@@ -8,39 +8,9 @@
     <meta charset="utf-8" />
     <title>Formulario Responsivo de registro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Agrofront.styles.css" asp-append-version="true" />
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: content-box;
-        }
 
-        body {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .btn-link {
-            text-decoration: none;
-            border: 1px solid #000;
-            width: 1000px;
-            text-align: center;
-            padding: 10px;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 16px;
-            background-color: #006400;
-            color: #fff;
-        }
-
-            .btn-link:hover {
-                box-shadow: 2px 2px #000;
-            }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -74,13 +44,44 @@
                 </div>
             </div>
             <div>
-                <a class="btn-link" href="index.html">Finalizar cadastro</a>
+                <a class="btn-link" asp-area="" asp-controller="Home" asp-action="Index">Finalizar</a>
             </div>
             <!-- Voltar para primeira página -->
             <div>
-                <a class="btn-link" href="4index.html">Propriedades</a>
+                <a class="btn-link" asp-area="" asp-controller="Home" asp-action="CadastroPropriedade">Propriedade</a>
             </div>
         </form>
     </div>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: content-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-link {
+            text-decoration: none;
+            border: 1px solid #000;
+            width: 1000px;
+            text-align: center;
+            padding: 10px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 16px;
+            background-color: #006400;
+            color: #fff;
+        }
+
+            .btn-link:hover {
+                box-shadow: 2px 2px #000;
+            }
+    </style>
 </body>
 </html>

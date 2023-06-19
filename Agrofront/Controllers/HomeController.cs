@@ -13,19 +13,11 @@ namespace Agrofront.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-        public IActionResult CadastroUsuário()
-        {
-            return View();
-        }
+        public IActionResult Index() { return View(); }
+        public IActionResult Privacy()  { return View();  }
+        public IActionResult CadastroProprietario() { return View(); }
+        public IActionResult CadastroPropriedade() { return View(); }
+        public IActionResult Login() { return View();  }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
