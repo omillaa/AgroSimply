@@ -35,11 +35,11 @@
                 </div>
             </div>
             <div>
-                <a class="btn-link" asp-area="" asp-controller="Home" asp-action="Index">Concluir cadastro</a>
+                <a class="btn-link" asp-area="" asp-controller="Home" asp-action="Index" > Concluir cadastro </a>
             </div>
             <!-- Voltar para primeira página -->
             <div>
-                <a class="btn-link" href="3index.html">Voltar à tela anterior</a>
+                @* <a class="btn-link" href="3index.html">Voltar à tela anterior</a>*@
             </div>
         </form>
     </div>
@@ -76,7 +76,7 @@
     </style>
 
 
-    <script>
+    <script id="Cadastro">
         document.addEventListener('DOMContentLoaded', function () {
             var button = document.querySelector('.btn-link');
             button.addEventListener('click', function (event) {

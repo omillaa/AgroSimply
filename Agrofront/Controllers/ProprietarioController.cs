@@ -1,6 +1,6 @@
-﻿//using Agrofront.Models;
-//using Microsoft.AspNetCore.Mvc;
-//using Microsoft.AspNetCore.ResponseCompression;
+﻿////using Agrofront.Models;
+////using Microsoft.AspNetCore.Mvc;
+////using Microsoft.AspNetCore.ResponseCompression;
 //using System.Text.Json;
 //using System.Text.Json.Serialization;
 //using Newtonsoft.Json;
@@ -12,7 +12,7 @@
 //{
 //    public class ProprietarioController : Controller
 //    {
-//        private readonly string ENDPOINT = "http://localhost:5211/api/Propriedade/Cadastrar";
+//        private readonly string ENDPOINT = "http://localhost:5211/api/Proprietario";
 //        private readonly HttpClient httpClient = null;
 
 
@@ -39,7 +39,7 @@
 
 //                return View(proprietario);
 //            }
-//            catch(Exception ex)
+//            catch (Exception ex)
 //            {
 //                string message = ex.Message;
 //                throw ex;
