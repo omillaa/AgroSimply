@@ -13,6 +13,17 @@ namespace AgroSimply
 
             // Add services to the container.
 
+            builder.Services.AddCors();
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.WithOrigins("https://localhost:5211")
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod();
+                    });
+            });
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
@@ -26,6 +37,13 @@ namespace AgroSimply
             builder.Services.AddScoped<IPropriedadeRepositorio, PropriedadeRepositorio>();
             var app = builder.Build();
 
+            app.UseCors(builder =>
+            {
+                builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            });
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -33,6 +51,7 @@ namespace AgroSimply
                 app.UseSwaggerUI();
             }
 
+            
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

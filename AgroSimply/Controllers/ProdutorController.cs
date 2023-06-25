@@ -20,7 +20,7 @@ namespace AgroSimply.Controllers
         [HttpGet]
         public async Task<ActionResult<List<ProdutorModels>>> BuscarTodosProdutores()
         {
-          List<ProdutorModels> produtor =  await _produtorRepositorio.BuscarProdutor();
+            List<ProdutorModels> produtor =  await _produtorRepositorio.BuscarProdutor();
             return Ok(produtor);
         }
 
