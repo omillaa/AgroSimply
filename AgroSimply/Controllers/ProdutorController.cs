@@ -36,6 +36,21 @@ namespace AgroSimply.Controllers
            ProdutorModels produtor = await _produtorRepositorio.Adicionar(produtorModel);
             return Ok(produtor);
         }
+
+        [HttpPost("Validarlogin")]
+        public async Task<ActionResult<bool>> ValidarLogin([FromBody] ProdutorModels login)
+        {
+            bool loginValido = await _produtorRepositorio.ValidarLogin(login.CPF, login.Senha);
+
+            if (loginValido)
+            {
+                return Ok(loginValido);
+            }
+            else
+            {
+                return Unauthorized(); // Retorna uma resposta 401 Unauthorized se o login for inválido
+            }
+        }
         [HttpPut("{id}")]
         public async Task<ActionResult<ProdutorModels>> Atualizar([FromBody] ProdutorModels produtorModel,int id)
         {
@@ -50,5 +65,7 @@ namespace AgroSimply.Controllers
             bool apagado = await _produtorRepositorio.Apagar(id);   
             return Ok(apagado);
         }
+  
+
     }
 }

@@ -9,6 +9,7 @@ namespace AgroSimply.Repositorios.Interfaces
         Task<ProdutorModels> BuscarPorId(int id);
         Task<ProdutorModels> Adicionar(ProdutorModels produtor);
         Task<ProdutorModels> Atualizar(ProdutorModels produtor, int id);
+        Task<bool> ValidarLogin(double cpf, string senha);
         Task<bool> Apagar(int id);
     }
 }

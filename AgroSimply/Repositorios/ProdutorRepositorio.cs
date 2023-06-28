@@ -62,8 +62,16 @@ namespace AgroSimply.Repositorios
             return true;
         }
 
-        
+        public async Task<bool> ValidarLogin(double cpf, string senha)
+        {
+            // Verificar se o CPF e a senha correspondem a um produtor válido no banco de dados
+            var produtor = await _dbContext.Produtor.FirstOrDefaultAsync(p => p.CPF == cpf && p.Senha == senha);
 
-     
+            // Se o produtor for encontrado, o login é válido
+            return produtor != null;
+        }
+
+
+
     }
 }
