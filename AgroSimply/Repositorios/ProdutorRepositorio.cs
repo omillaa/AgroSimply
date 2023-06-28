@@ -2,6 +2,7 @@
 using AgroSimply.Models;
 using AgroSimply.Repositorios.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration.UserSecrets;
 
 namespace AgroSimply.Repositorios
 {
@@ -64,14 +65,23 @@ namespace AgroSimply.Repositorios
 
         public async Task<bool> ValidarLogin(double cpf, string senha)
         {
+            
             // Verificar se o CPF e a senha correspondem a um produtor válido no banco de dados
-            var produtor = await _dbContext.Produtor.FirstOrDefaultAsync(p => p.CPF == cpf && p.Senha == senha);
-
+            var produtor = await _dbContext.Produtor.FirstOrDefaultAsync(p => p.CPF == cpf && p.Senha == senha );    
+            
             // Se o produtor for encontrado, o login é válido
             return produtor != null;
         }
 
-
+        public async Task<int> ObterIdPorCPF(double cpf)
+        {
+            var produtor = await _dbContext.Produtor.FirstOrDefaultAsync(p => p.CPF == cpf);
+            if (produtor != null)
+            {
+                return produtor.IdProdutor;
+            }
+            return 0; // ou algum valor padrão caso não encontre o produtor
+        }
 
     }
 }
